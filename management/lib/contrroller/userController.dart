@@ -7,8 +7,7 @@ import 'package:management/services/userServices.dart';
 
 
 class UserController extends GetxController {
-  var userResponse = true.obs;
-  var userId= 0.obs;
+
   var isLoading = true.obs;
 
   Future<UserModel?> postUser(String name,email,password) async {
@@ -19,8 +18,6 @@ class UserController extends GetxController {
         print("~~~~~~~~~~~~~~~Result~~~~~~~~~~~~~~~~~~~~");
         print("Result: ${result.toJson()}");
       }
-      userResponse.value = result.error;
-      userId.value= result.data;
       isLoading.value = false;
       return result;
     // } on SocketException {

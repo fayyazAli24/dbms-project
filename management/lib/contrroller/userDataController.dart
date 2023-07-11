@@ -14,12 +14,13 @@ class UserDataController extends GetxController{
     var userDataList = <UserDataModel>[].obs;
     var isLoading = false.obs;
     var check = false.obs;
+    var email = "".obs;
 
     Future<List<UserDataModel>> getAllUser() async{
       isLoading.value = true;
-      var result = UserServices.getUser();
+      var result = await UserServices.getUser();
       print("the controller result is "+result.toString());
-       userDataList.value = await result;
+       userDataList.value =  result;
        return userDataList;
 }
 }

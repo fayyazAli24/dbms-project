@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:management/contrroller/notesController.dart';
+import 'package:management/contrroller/userDataController.dart';
 import 'package:management/style.dart';
 import 'package:management/view/components/customInputField.dart';
 import 'package:management/view/components/myButton.dart';
@@ -22,6 +24,8 @@ class _TaskPageState extends State<TaskPage> {
   List<String> repeatList = ["None" ,"Daily","Weekly","Monthly"];
   TextEditingController _titileController = TextEditingController();
   TextEditingController _noteController = TextEditingController();
+  NotesController notesController = Get.put(NotesController());
+  UserDataController userDataController = Get.put(UserDataController());
 
 
   @override
@@ -152,12 +156,21 @@ class _TaskPageState extends State<TaskPage> {
               Center(
                 child: MyButton(label: "Create Task", onTap: (){
                   _validateDate();
+                  print("the error value is "+notesController.error.value.toString());
+                  notesController.postNotes(userDataController.email.toString(),
+                      _noteController.text,
+                      _startTime.toString(),
+                      _endTime.toString(),
+                      _selectedDate.toString(),
+                      _selectedRemind.toString(),
+                      _selectedReapet.toString()
+                  );
+
+                  notesController.getNotesData();
 
                 }),
               ),
               SizedBox(height: 10,),
-
-
             ],
           ),
         ),

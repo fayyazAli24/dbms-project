@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:management/view/mainScreen.dart';
+import 'package:management/view/screens/mainScreen.dart';
 import 'package:management/view/screens/signupScreen.dart';
 
 
@@ -15,11 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SignupScreen(),
+      home:  SignupScreen(),
     );
   }
 }
