@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:management/view/screens/loginScreen.dart';
 import 'package:management/view/screens/mainScreen.dart';
 import 'package:management/view/screens/signupScreen.dart';
+import 'package:management/view/screens/splashScreen.dart';
 
 
 void main() {
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  SignupScreen(),
+      home:  SplashScreen(),
     );
   }
 }
